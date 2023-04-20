@@ -10,8 +10,8 @@ async function search(cityName){
     loading.classList.add('loading--active');
     
     try {
-
-        let req = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${encodeURI(cityName)}&appid=${apiKey}`);
+ 
+        let req = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${encodeURI(cityName)}&appid=${apiKey}`);
         city = await req.json();
         req = await fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${city[0].lat}&lon=${city[0].lon}&units=metric&lang=pt_br&appid=${apiKey}`);
         weather = await req.json();
@@ -34,7 +34,7 @@ function autoSearch() {
         
         try {
 
-            let req = await fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&limit=1&appid=${apiKey}`);
+            let req = await fetch(`https://api.openweathermap.org/geo/1.0/reverse?lat=${pos.coords.latitude}&lon=${pos.coords.longitude}&limit=1&appid=${apiKey}`);
             city = await req.json();
             req = await fetch(`https://api.openweathermap.org/data/3.0/onecall?lat=${city[0].lat}&lon=${city[0].lon}&units=metric&lang=pt_br&appid=${apiKey}`);
             weather = await req.json();

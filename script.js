@@ -36,7 +36,6 @@ autoSearchButton.addEventListener('click',(e)=>{
 
 });
  
-
 window.addEventListener('load',()=>{
 
     searchInput.value = '';
